@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tugas 1 JavaScript</title>
+</head>
+<body>
+  <h2 align="center">Data Pegawai PT Nurul Fikri Cipta Inovasi</h2>
+    <table border="1" align="center" cellpadding="10" cellspacing="2" width="100%">
+        <thead bgcolor="yellow">
+          <tr>
+            <th>Nama Pegawai</th>
+            <th>Jabatan</th>
+            <th>Status</th>
+            <th>Gaji Pokok</th>
+            <th>Tunjangan Jabatan</th>
+            <th>BPJS</th>
+            <th>Tunjangan Keluarga</th>
+            <th>Total Gaji</th>
+          </tr>
+        </thead>
+        <tbody align="center">
+          <tr>
+            <td>Ridwan</td>
+            <td>Manager</td>
+            <td>Menikah</td>
+            <td id="Gaji_Pokok"></td>
+            <td id="Tunjangan_Jabatan"></td>
+            <td id="BPJS"></td>
+            <td id="Tunjangan_Keluarga"></td>
+            <td id="Total_Gaji"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="8" align="center">Total Gaji Keseluruhan &nbsp;=&nbsp; <span id="totalGajiSemua"></span></td>
+          </tr>
+        </tfoot>
+      </table>
+      
+      <script>
+        function hitungGaji(gapok, jabatan, status) {
+          let gajiPokok;
+          let tunjanganJabatan;
+          let bpjs;
+          let tunjanganKeluarga;
+      
+          if (jabatan === "Manager") {
+            gajiPokok = 15000000;
+          } else if (jabatan === "Asisten Manager") {
+            gajiPokok = 10000000;
+          } else if (jabatan === "Staff") {
+            gajiPokok = 5000000;
+          } else {
+            gajiPokok = 0;
+          }
+      
+          tunjanganJabatan = 0.15 * gajiPokok;
+          bpjs = 0.10 * gajiPokok;
+          tunjanganKeluarga = status === "Menikah" ? 0.20 * gajiPokok : 0;
+          let totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+          return [gajiPokok, tunjanganJabatan, bpjs, tunjanganKeluarga, totalGaji];
+        }
+      
+        const [gaji, tunjanganJabatan, bpjs, tunjanganKeluarga, totalGaji] = hitungGaji(0, 'Manager', 'Menikah');
+      
+        const elements = {
+          'Gaji_Pokok': gaji,
+          'Tunjangan_Jabatan': tunjanganJabatan,
+          'BPJS': bpjs,
+          'Tunjangan_Keluarga': tunjanganKeluarga,
+          'Total_Gaji': totalGaji
+        };
+
+        for (const id in elements) {
+          document.getElementById(id).textContent = elements[id].toLocaleString();
+        }
+      
+        const totalGajiSemua = totalGaji;
+        document.getElementById('totalGajiSemua').textContent = totalGajiSemua.toLocaleString();
+      </script>
+      
+</body>
+</html>
