@@ -1,0 +1,70 @@
+<h2 align="center">Tugas 2 JavaScript</h2>
+<table style="padding: 10; text-align: center;" cellpadding="10" cellspacing="1" width="100%">
+    <thead bgcolor="lightblue">
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Nilai</th>
+            <th>Keterangan</th>
+            <th>Grade</th>
+            <th>Predikat</th>
+        </tr>
+    </thead>
+    <tbody>
+        <script>
+            let s1 = {"nama": "Andi", nilai:80};
+            let s2 = {"nama": "Ali", nilai:40};
+            let s3 = {"nama": "Aji", nilai:90};
+            let s4 = {"nama": "Ani", nilai:86};
+            let s5 = {"nama": "Ando", nilai:70};
+
+            let siswa = [s1,s2,s3,s4,s5];
+
+
+            // var no = 1;
+            for(let no = 1; no <= siswa.length; no++){
+                let s = siswa[no - 1];
+                // ternary
+                let ket = (s.nilai >= 60) ? "Lulus" : "Gagal";
+                let grade = "";
+                let predikat = "";
+                // if multi kondisi
+                if (s.nilai > 85 && s.nilai <= 100) grade = "A";
+                else if (s.nilai > 75 && s.nilai <= 85) grade = "B";
+                else if (s.nilai >= 60 && s.nilai <= 75) grade = "C";
+                else if (s.nilai > 30 && s.nilai < 60) grade = "D";
+                else if (s.nilai >= 0 && s.nilai <= 30) grade = "E";
+                else grade = "";
+                switch(grade){
+                    case "A" : predikat = "Sempurna"; break;
+                    case "B" : predikat = "Baik"; break;
+                    case "C" : predikat = "Cukup"; break;
+                    case "D" : predikat = "Kurang"; break;
+                    case "E" : predikat = "Buruk"; break;
+                    default : predikat = ""; break;
+                }
+                
+                warna = (no % 2 == 0) ? 'lightgrey' : 'lightgreen';
+                document.write(` <tr bgcolor="${warna}">
+                <td>${no}</td>
+                <td>${s.nama}</td>
+                <td>${s.nilai} </td>
+                <td>${ket}</td>
+                <td>${grade}</td>
+                <td>${predikat}</td>
+                </tr>`
+                );
+
+
+                // Tugas : tampilkan
+                // 1. nomor
+                // 2. nama
+                // 3. nilai
+                // 4. Keterangan
+                // 5. grade
+                // 6. predikat
+                // sesuai latihan yang pagi dilakukan
+            }
+        </script>
+    </tbody>
+</table>
