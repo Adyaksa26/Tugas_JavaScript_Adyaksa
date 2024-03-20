@@ -1,0 +1,17 @@
+body{
+    text-align: center;
+    margin: auto;
+    background-color: antiquewhite;
+}
+#div1, #div2, #div3, #div4{
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+    color: black;
+    border: 3px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background: greenyellow;
+    height: 400px;
+    cursor: pointer;
+}

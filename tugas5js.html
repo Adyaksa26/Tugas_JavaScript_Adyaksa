@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler</title>
+    <link rel="stylesheet" href="CSSTugas5js/style1.css">
+</head>
+<body>
+    <h2>Letakkan kursor ke masing-masing kotak untuk melihat gambar</h2>
+    <div id="div1">
+        Hewan Kodok
+    </div>
+    <div id="div2">
+        Hewan Kucing
+    </div>
+    <div id="div3">
+        Hewan Monyet
+    </div>
+    <div id="div4">
+        Hewan Macan
+    </div>
+
+    <audio id="kodok" src="soundTugas5js/Frog (Croaking) - Sound Effect _ ProSound.mp3"></audio>
+    <audio id="kucing" src="soundTugas5js/Suara Kucing Berantem  - Sound Effect.mp3"></audio>
+    <audio id="monyet" src="soundTugas5js/Efek suara monyet.mp3"></audio>
+    <audio id="macan" src="soundTugas5js/Suara _Rawr_ Dilan Kw _ Sound Effect.mp3"></audio>
+
+    <script src="jsTugas5/jquery-3.7.1.min.js"></script>
+    <script>
+        // tugas hari ini
+        // ketika mousenya diatas gambar atau kotak maka hewannya bisa bersuara
+        $("document").ready(function(){
+            $("#div1").mouseover(function(){
+                $(this).css({
+                background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs1pldGQivrUS-N5Lu2R-qSPNHf_5-evdvzw&usqp=CAU')"
+                });
+                $("#kodok")[0].play();
+            });
+            $("div").mouseout(function(){
+                $(this).css({
+                    background: "yellow"
+                })
+            })
+            $("#div2").mouseover(function(){
+                $(this).css({
+                background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEYrcpe045MD3wd0JFS6F7IqKRql867U64nw&usqp=CAU')"
+                });
+                $("#kucing")[0].play();
+            });
+            $("#div3").mouseover(function(){
+                $(this).css({
+                background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDoOXHg6fTFh6bFs777Wfoiy3b1dzfRPdyEg&usqp=CAU')"
+                });
+                $("#monyet")[0].play();
+            });
+            $("#div4").mouseover(function(){
+                $(this).css({
+                background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkCzHAceXW9r5bim_79GvYW01mpINyLivevw&usqp=CAU')"
+                });
+                $("#macan")[0].play();
+            });
+        })
+    </script>
+</body>
+</html>
